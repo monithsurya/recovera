@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "recovera"
+version = "0.1.0"
+description = "Modular foundation for simulated robotic execution and recovery research"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["mujoco>=3.1,<4", "numpy>=1.26,<3", "pydantic>=2.6,<3"]
+[project.optional-dependencies]
+dev = ["pytest>=8,<9", "ruff>=0.6,<1"]
+[project.scripts]
+recovera = "recovera.cli:main"
+[tool.setuptools.packages.find]
+where = ["src"]
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["integration: requires MuJoCo model assets", "real_llm: calls a configured real local Ollama model"]
+pythonpath = ["src"]
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+

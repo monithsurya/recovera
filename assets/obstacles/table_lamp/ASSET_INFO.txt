@@ -1,0 +1,5 @@
+Tripod Table Lamp model
+Original source: https://www.innerscene.com/tools/library/3d-parts/tripod-tripod-table-lamp-276934ff
+Download: https://www.innerscene.com/api/library/tripod-tripod-table-lamp-276934ff/download
+Original model by Innerscene. The model page dedicates the source to the public domain under CC0 1.0.
+Source GLB is preserved as tripod-table-lamp.glb. The OBJ parts are geometry exports converted from Y-up to Recovera/MuJoCo Z-up.

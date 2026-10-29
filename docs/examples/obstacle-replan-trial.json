@@ -1,0 +1,104 @@
+{
+  "status": "success",
+  "success": true,
+  "outcome_classification": "task_success",
+  "elapsed_seconds": 1.6141366669999115,
+  "execution_duration_seconds": 1.6141370000004827,
+  "recovery_seconds": 0.18572099999983038,
+  "recovery_attempt_count": 1,
+  "replan_count": 1,
+  "simulated_seconds": 33.26599999999469,
+  "cube_final_position": [
+    0.4598871308431342,
+    0.32595033369907644,
+    0.017916187030775025
+  ],
+  "target_position": [
+    0.45,
+    0.32,
+    0.0
+  ],
+  "trial_id": "bf4ca818b3",
+  "scenario": "obstacle-replan",
+  "random_seed": 17,
+  "initial_configuration": {
+    "cube_position": [
+      0.45,
+      -0.2,
+      0.018
+    ],
+    "target_position": [
+      0.45,
+      0.32,
+      0.0
+    ],
+    "timestep": 0.002,
+    "scenario_id": "obstacle-replan",
+    "obstacle": {
+      "type": "tripod-table-lamp",
+      "position": [
+        0.45,
+        0.06,
+        0.0
+      ],
+      "half_size": null,
+      "scale": 0.65
+    }
+  },
+  "injected_failure": null,
+  "safe_stop_achieved": false,
+  "diagnostics": [
+    "verified stable placement"
+  ],
+  "events": [
+    {
+      "event_type": "scene_changed",
+      "step": 250,
+      "sim_time": 0.5000000000000003,
+      "entity_id": "route_obstacle",
+      "expected_phase": "approaching",
+      "explanation": "The route obstacle is present in MuJoCo and planner collision geometry.",
+      "evidence": {
+        "scene_revision": 1
+      }
+    }
+  ],
+  "recovery_attempts": [
+    {
+      "event_type": "scene_changed",
+      "event_step": 250,
+      "attempt_number": 1,
+      "strategy": "refresh_and_replan",
+      "planning_status": "success",
+      "planning_reason": "collision-checked MuJoCo RRT path; trajectory passed current-scene checks",
+      "validation_passed": true,
+      "execution_completed": true,
+      "verification": "current waypoint reached",
+      "resumed_original_task": true,
+      "terminal_reason": null,
+      "llm_provider": "mock",
+      "llm_model": "fixed-mock",
+      "llm_proposal_accepted": true,
+      "llm_proposal_reason": "proposal matches request, prerequisites, and allowlist",
+      "proposal_rationale": "Explicit mock provider selected this permitted candidate.",
+      "llm_latency_seconds": 1.2915999832330272e-05,
+      "fallback_reason": null,
+      "candidate_strategy_ids": [
+        "refresh_and_replan",
+        "safe_stop"
+      ],
+      "candidate_feasibility": {
+        "refresh_and_replan": "collision-checked MuJoCo RRT path; trajectory passed current-scene checks",
+        "safe_stop": "safe stop is always permitted; no robot motion"
+      },
+      "inference_mode": "mock",
+      "snapshot_step": 250,
+      "scene_revision": 1,
+      "recovery_duration_seconds": 0.18572099999983038,
+      "trial_id": "bf4ca818b3",
+      "scenario": "obstacle-replan",
+      "outcome_classification": "recovery_success",
+      "timestamp_utc": "2026-10-29T12:10:56.575749Z"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.DS_Store
+MUJOCO_LOG.TXT
+results/
+assets/franka_emika_panda/recovera_scene.xml
+assets/franka_emika_panda/.recovera_scene_*.mjb
