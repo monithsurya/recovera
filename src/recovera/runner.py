@@ -11,6 +11,7 @@ from recovera.config import RecoveraConfig
 from recovera.environment import MujocoEnvironment
 from recovera.results import TrialResult
 from recovera.robot import PandaAdapter
+from recovera.scenarios import get_scenario
 from recovera.task import PickAndPlaceTask
 
 log = logging.getLogger("recovera.SIMULATION")
@@ -69,6 +70,14 @@ def run_trial(config: RecoveraConfig) -> TrialResult:
                 ) from exc
             try:
                 env.viewer = viewer
+                camera = get_scenario(config.scenario_id)
+                if camera.viewer_lookat is not None:
+                    # Frame the pickup, lamp, and destination together in the
+                    # initial window instead of relying on MuJoCo's generic view.
+                    viewer.cam.lookat[:] = camera.viewer_lookat
+                    viewer.cam.distance = camera.viewer_distance
+                    viewer.cam.azimuth = camera.viewer_azimuth
+                    viewer.cam.elevation = camera.viewer_elevation
                 viewer.sync()
                 if not viewer.is_running():
                     raise RuntimeError("MuJoCo viewer window did not stay open")

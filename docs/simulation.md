@@ -14,6 +14,8 @@ The table-lamp asset is composed of 15 OBJ meshes converted from the original GL
 
 Scenario 3 raises a scene-change event for the configured, static obstacle. The recovery coordinator refreshes the snapshot and checks candidate postures. IK solutions are tested against MuJoCo collision state; the joint-space RRT checks its sampled configurations and trajectory validator checks the returned path again before execution. Seeded IK alternatives are also considered for waypoints that need a collision-free arm posture. The route carries the cube above the lamp at the configured transfer height, then lowers it over the separate green target. Placement is reported only after the normal stability check.
 
+The scenario also supplies a camera pose for the native viewer so the pickup, obstacle, and target remain in frame together. `scripts/capture_obstacle_hero.py` runs the same task headlessly and saves a frame from the cube's verified transport phase for documentation or presentation use.
+
 Scenario 4 is intentionally infeasible for the supported top-down grasp approach. Its wall fixture is checked by the planner before the task begins; it is not a claim inferred from the fixture's appearance.
 
 ## Other scenarios

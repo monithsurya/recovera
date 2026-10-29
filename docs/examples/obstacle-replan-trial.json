@@ -2,23 +2,23 @@
   "status": "success",
   "success": true,
   "outcome_classification": "task_success",
-  "elapsed_seconds": 1.6141366669999115,
-  "execution_duration_seconds": 1.6141370000004827,
-  "recovery_seconds": 0.18572099999983038,
+  "elapsed_seconds": 1.5504851669993513,
+  "execution_duration_seconds": 1.5504856249990553,
+  "recovery_seconds": 0.19235612500051502,
   "recovery_attempt_count": 1,
   "replan_count": 1,
-  "simulated_seconds": 33.26599999999469,
+  "simulated_seconds": 30.87199999999377,
   "cube_final_position": [
-    0.4598871308431342,
-    0.32595033369907644,
-    0.017916187030775025
+    0.4378982714312318,
+    0.3033393915801278,
+    0.017916187030775
   ],
   "target_position": [
     0.45,
     0.32,
     0.0
   ],
-  "trial_id": "bf4ca818b3",
+  "trial_id": "978d9319d1",
   "scenario": "obstacle-replan",
   "random_seed": 17,
   "initial_configuration": {
@@ -38,7 +38,7 @@
       "type": "tripod-table-lamp",
       "position": [
         0.45,
-        0.06,
+        0.03,
         0.0
       ],
       "half_size": null,
@@ -81,7 +81,7 @@
       "llm_proposal_accepted": true,
       "llm_proposal_reason": "proposal matches request, prerequisites, and allowlist",
       "proposal_rationale": "Explicit mock provider selected this permitted candidate.",
-      "llm_latency_seconds": 1.2915999832330272e-05,
+      "llm_latency_seconds": 2.3833001250750385e-05,
       "fallback_reason": null,
       "candidate_strategy_ids": [
         "refresh_and_replan",
@@ -94,11 +94,11 @@
       "inference_mode": "mock",
       "snapshot_step": 250,
       "scene_revision": 1,
-      "recovery_duration_seconds": 0.18572099999983038,
-      "trial_id": "bf4ca818b3",
+      "recovery_duration_seconds": 0.19235612500051502,
+      "trial_id": "978d9319d1",
       "scenario": "obstacle-replan",
       "outcome_classification": "recovery_success",
-      "timestamp_utc": "2026-10-29T12:10:56.575749Z"
+      "timestamp_utc": "2026-10-29T14:55:13.015868Z"
     }
   ]
 }

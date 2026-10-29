@@ -44,6 +44,14 @@ On macOS, launch the native MuJoCo passive viewer through the `mjpython` executa
 mjpython -m recovera.cli --viewer --scenario obstacle-replan --llm-provider mock
 ```
 
+If importing `pydantic_core` from a virtual environment under Desktop fails with `mmap ... errno=60`, that environment cannot read or map its native extension. Keep the environment outside Desktop or other cloud-synced folders and install the project there:
+
+```bash
+python3 -m venv "$HOME/.venvs/recovera"
+"$HOME/.venvs/recovera/bin/python" -m pip install -e '.[dev]'
+PYTHONPATH=src "$HOME/.venvs/recovera/bin/mjpython" -m recovera.cli --viewer --scenario obstacle-replan --llm-provider mock
+```
+
 ## Saved output and generated files
 
 Trial records are written to `results/` by default and are ignored by Git to keep machine-specific runs out of the source history. Pass `--results-dir PATH` to choose another location. MuJoCo generates the combined scene XML and compiled model cache beside the Panda MJCF; those generated files are ignored as well.
@@ -55,3 +63,4 @@ Trial records are written to `results/` by default and are ignored by Git to kee
 - `assets/obstacles/table_lamp/`: lamp source model, scene meshes, and source/license note.
 - `tests/`: headless unit and integration tests; the real Ollama smoke test is opt-in.
 - `docs/images/`: a rendered MuJoCo scene used by the README.
+- `scripts/capture_obstacle_hero.py`: reruns the obstacle scenario and captures the cube crossing above the lamp.

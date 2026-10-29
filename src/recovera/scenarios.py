@@ -14,6 +14,10 @@ class ScenarioDefinition:
     obstacle_scale: float = 1.0
     cube_initial_position: tuple[float, float, float] | None = None
     target_position: tuple[float, float, float] | None = None
+    viewer_lookat: tuple[float, float, float] | None = None
+    viewer_distance: float = 1.85
+    viewer_azimuth: float = 135.0
+    viewer_elevation: float = -19.0
     injected_failure: str | None = None
     llm_default: bool = False
 
@@ -33,11 +37,14 @@ SCENARIOS = {
         "obstacle-replan",
         "Obstacle Avoidance — LLM-Guided Replanning",
         "A CC0 tripod table lamp blocks the tabletop transfer route; seeded alternate IK postures are checked and replanned around its shade and tripod.",
-        obstacle_position=(0.45, 0.06, 0.0),
+        obstacle_position=(0.45, 0.03, 0.0),
         obstacle_asset="tripod-table-lamp",
         obstacle_scale=0.65,
         cube_initial_position=(0.45, -0.20, 0.018),
         target_position=(0.45, 0.32, 0.0),
+        viewer_lookat=(0.29, 0.04, 0.36),
+        viewer_distance=1.65,
+        viewer_azimuth=315.0,
         llm_default=True,
     ),
     "blocked-route": ScenarioDefinition(

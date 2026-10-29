@@ -2,9 +2,9 @@
 
 Recovera is a MuJoCo test bed for studying pick-and-place execution, failure detection, and bounded recovery with a Franka Panda. Five deterministic scenarios use the same task, monitoring, planning, and verification pipeline. An optional local Ollama model can choose among application-defined recovery strategies; it never supplies robot commands or trajectories.
 
-![MuJoCo scene with the Panda, pickup cube, table lamp obstacle, and placement target](docs/images/obstacle-replan-lamp.png)
+![The Panda carries the cube above the table lamp while the green target remains clear on the far side](docs/images/obstacle-replan-transfer.png)
 
-*Obstacle-avoidance scene at reset. The lamp lies between the cube pickup point and the green placement target.*
+*A captured frame from a successful obstacle-replanning run. The lamp separates pickup and placement; the Panda carries the cube above its shade.*
 
 ## Start here
 
@@ -48,7 +48,14 @@ Run the obstacle demonstration in the native viewer with mock inference:
 mjpython -m recovera.cli --viewer --scenario obstacle-replan --llm-provider mock
 ```
 
-The obstacle scene starts the cube at `(0.45, -0.20, 0.018)` m and places the target at `(0.45, 0.32, 0)` m, with the lamp at `(0.45, 0.06, 0)` m. The table lamp is a 0.65-scale public-domain model. Its visual meshes are separate from the collision geometry: the planner checks a cylindrical shade proxy and three capsule leg proxies. This keeps the scene recognizable while making collision checks tractable.
+The obstacle scene starts the cube at `(0.45, -0.20, 0.018)` m and places the target at `(0.45, 0.32, 0)` m, with the lamp at `(0.45, 0.03, 0)` m. The lamp sits between the pickup and placement points, slightly toward the pickup side. The table lamp is a 0.65-scale public-domain model. Its visual meshes are separate from the collision geometry: the planner checks a cylindrical shade proxy and three capsule leg proxies. This keeps the scene recognizable while making collision checks tractable.
+
+The obstacle viewer opens with a camera framing the pickup, lamp, and placement area. To regenerate the mid-transport image from a real simulation run:
+
+```bash
+PYTHONPATH=src python scripts/capture_obstacle_hero.py
+```
+
 
 ## Local language-model guidance
 
